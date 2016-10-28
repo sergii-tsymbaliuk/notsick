@@ -7,7 +7,10 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+<<<<<<< HEAD
 import java.util.stream.Collectors;
+=======
+>>>>>>> 79ff8904382d479804492f54efcc2f5d7f082888
 
 /**
  * Created by stsym on 10/26/2016.
@@ -35,11 +38,16 @@ public class StaticNoteServiceImpl implements NoteService {
 
     @Override
     public List<Note> getAllNotes() {
+<<<<<<< HEAD
         return notes;
+=======
+        return null;
+>>>>>>> 79ff8904382d479804492f54efcc2f5d7f082888
     }
 
     @Override
     public List<Note> getNotesByUser(Long userId) {
+<<<<<<< HEAD
         return notes.stream()
                     .filter(note->(note.getUser().getId()==userId))
                     .collect(Collectors.toList());
@@ -49,5 +57,8 @@ public class StaticNoteServiceImpl implements NoteService {
     public Note saveNote(Note note) {
         notes.add(note);
         return note;
+=======
+        return null;
+>>>>>>> 79ff8904382d479804492f54efcc2f5d7f082888
     }
 }
