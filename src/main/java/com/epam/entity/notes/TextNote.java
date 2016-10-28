@@ -5,6 +5,8 @@ import com.epam.entity.User;
 
 /**
  * Created by stsym on 10/26/2016.
+ *
+ *
  */
 public class TextNote extends Note {
     private String text;
