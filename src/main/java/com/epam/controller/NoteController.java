@@ -35,11 +35,7 @@ public class NoteController {
 
     @RequestMapping(path="/user/{userId}/note", method = RequestMethod.PUT)
     public Note putNote(@PathVariable Long userId, @ModelAttribute Note note){
-<<<<<<< HEAD
         return noteService.saveNote(note);
-=======
-        return noteService.putNote(Note,)
->>>>>>> 79ff8904382d479804492f54efcc2f5d7f082888
     }
 
 }

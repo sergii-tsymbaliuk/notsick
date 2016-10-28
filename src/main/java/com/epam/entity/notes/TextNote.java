@@ -5,11 +5,7 @@ import com.epam.entity.User;
 
 /**
  * Created by stsym on 10/26/2016.
-<<<<<<< HEAD
  *
- *
-=======
->>>>>>> 79ff8904382d479804492f54efcc2f5d7f082888
  */
 public class TextNote extends Note {
     private String text;
