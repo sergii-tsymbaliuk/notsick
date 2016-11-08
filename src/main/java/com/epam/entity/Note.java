@@ -1,41 +1,29 @@
 package com.epam.entity;
 
+import lombok.*;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.ManyToOne;
+import javax.persistence.Id;
 
 /**
- * Created by stsym on 10/26/2016.
+ * Basic note entity class
  */
 @Entity
-public abstract class Note {
+@ToString
+@Getter
+@Setter
+@NoArgsConstructor
+public class Note {
+    @Id
     @GeneratedValue
     private Long id;
 
-    @ManyToOne
-    private User user;
+    private Long userId;
+    private String text;
 
-    public Note(User user) {
-        this.user = user;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    @Override
-    public String toString() {
-        return "Note{" +
-                "id=" + id +
-                ", user=" + user +
-                '}';
+    public Note(Long userId, String text) {
+        this.userId = userId;
+        this.text = text;
     }
 }

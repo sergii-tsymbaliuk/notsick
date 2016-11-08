@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /**
- * Created by stsym on 10/25/2016.
+ * User REST controller
  */
 @RestController
 public class UserController {

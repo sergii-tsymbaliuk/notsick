@@ -1,49 +1,25 @@
 package com.epam.entity;
 
+import lombok.Data;
+import lombok.NonNull;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 /**
- * Created by stsym on 10/25/2016.
+ * Basic user entity.
  */
 @Entity
+@Data
 public class User {
     @GeneratedValue
+    @Id
     private Long id;
+
+    @NonNull
     private String name;
+
+    @NonNull
     private String login;
-
-    public User(String name, String login){
-        this.name = name;
-        this.login = login;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", login='" + login + '\'' +
-                '}';
-    }
 }
