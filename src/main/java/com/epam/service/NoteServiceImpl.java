@@ -3,6 +3,7 @@ package com.epam.service;
 import com.epam.entity.Note;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.util.*;
@@ -11,7 +12,7 @@ import java.util.stream.Collectors;
 /**
  * HashMap UserService implementation.
  */
-@Component
+@Service
 public class NoteServiceImpl implements NoteService {
     private static Long idGenerator = 0L;
 

@@ -2,6 +2,7 @@ package com.epam.service;
 
 import com.epam.entity.User;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.util.HashMap;
@@ -12,7 +13,7 @@ import java.util.stream.Collectors;
 /**
  * HashMap UserService implementation.
  */
-@Component
+@Service
 public class UserServiceImpl implements UserService {
     private static Long idGenerator = 0L;
     private final Map<Long,User> users;
