@@ -2,15 +2,18 @@ package com.epam.controller;
 
 import com.epam.entity.Note;
 import com.epam.service.NoteService;
+import com.epam.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 /**
- * Created by stsym on 10/27/2016.
+ * Rest controller for notes.
  */
 @RestController
+@Slf4j
 public class NoteController {
     private final NoteService noteService;
 
@@ -34,9 +37,10 @@ public class NoteController {
         return noteService.getNotesByUser(userId);
     }
 
-    @RequestMapping(path="/user/{userId}/note", method = RequestMethod.PUT)
-    public Note putNote(@PathVariable Long userId, @ModelAttribute Note note){
+
+    @RequestMapping(path="/user/{userId}/note", method = {RequestMethod.POST, RequestMethod.PUT})
+    public Note addUserNote(@PathVariable Long userId, @ModelAttribute Note note) {
+        note.setUserId(userId);
         return noteService.saveNote(note);
     }
-
 }

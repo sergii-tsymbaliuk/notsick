@@ -5,7 +5,7 @@ import com.epam.entity.Note;
 import java.util.List;
 
 /**
- * Created by stsym on 10/26/2016.
+ * Note Service Interface.
  */
 public interface NoteService {
     Note getNoteById(Long id);
