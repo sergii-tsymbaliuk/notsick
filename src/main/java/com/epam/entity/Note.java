@@ -5,6 +5,7 @@ import lombok.*;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  * Basic note entity class
@@ -14,16 +15,16 @@ import javax.persistence.Id;
 @Getter
 @Setter
 @NoArgsConstructor
+@RequiredArgsConstructor
 public class Note {
     @Id
     @GeneratedValue
     private Long id;
 
-    private Long userId;
+    @NonNull
     private String text;
 
-    public Note(Long userId, String text) {
-        this.userId = userId;
-        this.text = text;
-    }
+    @NonNull
+    @ManyToOne
+    private User user;
 }

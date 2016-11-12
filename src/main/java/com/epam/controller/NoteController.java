@@ -15,32 +15,29 @@ import java.util.List;
 @RestController
 @Slf4j
 public class NoteController {
-    private final NoteService noteService;
-
     @Autowired
-    public NoteController(NoteService noteService){
-        this.noteService = noteService;
-    }
+    private NoteService noteService;
+    @Autowired
+    private UserService userService;
 
     @RequestMapping(path = "/notes", method = RequestMethod.GET)
     public List<Note> getAllNotes(){
         return noteService.getAllNotes();
     }
 
-    @RequestMapping(path = "/note/{id}", method = RequestMethod.GET)
+    @RequestMapping(path = "/notes/{id}", method = RequestMethod.GET)
     public Note getNoteById(@PathVariable Long id){
         return noteService.getNoteById(id);
     }
 
-    @RequestMapping(path="/user/{userId}/notes", method = RequestMethod.GET)
+    @RequestMapping(path="/users/{userId}/notes", method = RequestMethod.GET)
     public List<Note> getUserNotes(@PathVariable Long userId){
         return noteService.getNotesByUser(userId);
     }
 
-
-    @RequestMapping(path="/user/{userId}/note", method = {RequestMethod.POST, RequestMethod.PUT})
+    @RequestMapping(path="/users/{userId}/notes", method = {RequestMethod.POST, RequestMethod.PUT})
     public Note addUserNote(@PathVariable Long userId, @ModelAttribute Note note) {
-        note.setUserId(userId);
+        note.setUser(userService.getUserById(userId));
         return noteService.saveNote(note);
     }
 }

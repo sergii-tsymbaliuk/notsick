@@ -1,17 +1,19 @@
 package com.epam.entity;
 
-import lombok.Data;
-import lombok.NonNull;
+import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 /**
  * Basic user entity.
  */
 @Entity
-@Data
+@ToString
+@Getter
+@Setter
+@NoArgsConstructor
+@RequiredArgsConstructor
 public class User {
     @GeneratedValue
     @Id
@@ -22,4 +24,7 @@ public class User {
 
     @NonNull
     private String login;
+
+    @OneToMany
+    private List<Note> notes;
 }

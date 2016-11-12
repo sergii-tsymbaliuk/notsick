@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 /**
  * HashMap UserService implementation.
  */
-@Service
+//@Service
 public class HashMapNoteServiceImpl implements NoteService {
     private static Long idGenerator = 0L;
 
@@ -41,7 +41,7 @@ public class HashMapNoteServiceImpl implements NoteService {
     public List<Note> getNotesByUser(Long userId) {
         return notes.values()
                 .stream()
-                .filter(note->note.getUserId().equals(userId))
+                .filter(note->note.getUser().getId().equals(userId))
                 .collect(Collectors.toList());
     }
 
@@ -51,11 +51,5 @@ public class HashMapNoteServiceImpl implements NoteService {
             note.setId(idGenerator++);
         }
         return notes.put(note.getId(), note);
-    }
-
-    @PostConstruct
-    public void init(){
-        saveNote(new Note(0L, "Note 0 for the user 0"));
-        saveNote(new Note(1L, "First note for user #1"));
     }
 }

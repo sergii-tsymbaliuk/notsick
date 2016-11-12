@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 /**
  * HashMap UserService implementation.
  */
-@Service
+//@Service
 public class HashMapUserServiceImpl implements UserService {
     private static Long idGenerator = 0L;
     private final Map<Long,User> users;

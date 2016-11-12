@@ -2,9 +2,11 @@ package com.epam.repository;
 
 import com.epam.entity.User;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 /**
- * Created by stsym on 11/10/2016.
+ * User CRUD Repository
  */
+@Repository
 public interface UserRepository extends CrudRepository<User, Long> {
 }
