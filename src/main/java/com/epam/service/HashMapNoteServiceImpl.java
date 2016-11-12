@@ -13,14 +13,14 @@ import java.util.stream.Collectors;
  * HashMap UserService implementation.
  */
 @Service
-public class NoteServiceImpl implements NoteService {
+public class HashMapNoteServiceImpl implements NoteService {
     private static Long idGenerator = 0L;
 
     private UserService userService;
     private HashMap<Long, Note> notes;
 
     @Autowired
-    public NoteServiceImpl(UserService userService) {
+    public HashMapNoteServiceImpl(UserService userService) {
         this.userService = userService;
         notes = new HashMap<>();
     }

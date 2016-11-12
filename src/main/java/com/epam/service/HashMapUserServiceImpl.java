@@ -14,11 +14,11 @@ import java.util.stream.Collectors;
  * HashMap UserService implementation.
  */
 @Service
-public class UserServiceImpl implements UserService {
+public class HashMapUserServiceImpl implements UserService {
     private static Long idGenerator = 0L;
     private final Map<Long,User> users;
 
-    public UserServiceImpl(){
+    public HashMapUserServiceImpl(){
         this.users = new HashMap<>();
     }
 
