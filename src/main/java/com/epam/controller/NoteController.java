@@ -14,30 +14,23 @@ import java.util.List;
  */
 @RestController
 @Slf4j
+@RequestMapping("/notes")
 public class NoteController {
     @Autowired
     private NoteService noteService;
-    @Autowired
-    private UserService userService;
 
-    @RequestMapping(path = "/notes", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public List<Note> getAllNotes(){
         return noteService.getAllNotes();
     }
 
-    @RequestMapping(path = "/notes/{id}", method = RequestMethod.GET)
+    @RequestMapping(path = "/{id}", method = RequestMethod.GET)
     public Note getNoteById(@PathVariable Long id){
         return noteService.getNoteById(id);
     }
 
-    @RequestMapping(path="/users/{userId}/notes", method = RequestMethod.GET)
-    public List<Note> getUserNotes(@PathVariable Long userId){
-        return noteService.getNotesByUser(userId);
-    }
-
-    @RequestMapping(path="/users/{userId}/notes", method = {RequestMethod.POST, RequestMethod.PUT})
-    public Note addUserNote(@PathVariable Long userId, @ModelAttribute Note note) {
-        note.setUser(userService.getUserById(userId));
+    @RequestMapping(method = {RequestMethod.POST, RequestMethod.PUT})
+    public Note addUserNote(@ModelAttribute Note note) {
         return noteService.saveNote(note);
     }
 }

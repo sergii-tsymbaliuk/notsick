@@ -41,6 +41,16 @@ public class HashMapUserServiceImpl implements UserService {
         return this.users.put(user.getId(), user);
     }
 
+    @Override
+    public User deleteUser(User user) {
+        return this.users.remove(user.getId());
+    }
+
+    @Override
+    public User deleteUser(Long userId) {
+        return this.users.remove(userId);
+    }
+
     @PostConstruct
     public void init(){
         saveUser(new User(/*Name:*/ "Administrator", /*login:*/ "admin"));

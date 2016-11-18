@@ -4,6 +4,7 @@ import com.epam.entity.Note;
 import com.epam.entity.User;
 import com.epam.repository.NoteRepository;
 import com.epam.repository.UserRepository;
+import com.epam.service.NoteService;
 import com.epam.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,24 +32,24 @@ public class MainApp {
     }
 
     @Bean
-    public CommandLineRunner demo(UserRepository userRepo, NoteRepository noteRepo) {
+    public CommandLineRunner demo(UserService userService, NoteService noteService) {
         return (args) -> {
             // save a couple of customers
-            userRepo.save(new User("User", "user"));
-            userRepo.save(new User("Admin", "admin"));
+            userService.saveUser(new User("User", "user"));
+            userService.saveUser(new User("Admin", "admin"));
 
             // fetch all customers
             log.info("-- Users -----------------------------");
-            for (User user : userRepo.findAll()) {
-                //log.info(user.toString());
-                noteRepo.save(new Note("Note#1 for user " + user.getName(), user));
-                noteRepo.save(new Note("Note#2 for user " + user.getName(), user));
+            for (User user : userService.getAllUsers()) {
+                log.info(user.toString());
+                noteService.saveNote(new Note("Note#1 for user " + user.getName(), user));
+                noteService.saveNote(new Note("Note#2 for user " + user.getName(), user));
             }
 
-/*            log.info("--- Notes -----------------------------------------");
-            for (Note note : noteRepo.findAll()) {
+            log.info("--- Notes -----------------------------------------");
+            for (Note note : noteService.getAllNotes()) {
                 log.info(note.toString());
-            }*/
+            }
         };
     }
 

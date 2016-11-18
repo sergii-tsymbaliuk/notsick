@@ -39,4 +39,18 @@ public class JpaNoteServiceImpl implements NoteService {
     public Note saveNote(Note note) {
         return noteRepository.save(note);
     }
+
+    @Override
+    public Note deleteNote(Note note) {
+        note = getNoteById(note.getId());
+        noteRepository.delete(note);
+        return note;
+    }
+
+    @Override
+    public Note deleteNote(Long id) {
+        Note note = noteRepository.findOne(id);
+        noteRepository.delete(id);
+        return note;
+    }
 }

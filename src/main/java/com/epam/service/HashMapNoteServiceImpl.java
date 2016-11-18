@@ -52,4 +52,14 @@ public class HashMapNoteServiceImpl implements NoteService {
         }
         return notes.put(note.getId(), note);
     }
+
+    @Override
+    public Note deleteNote(Note note) {
+        return this.notes.remove(note.getId());
+    }
+
+    @Override
+    public Note deleteNote(Long id) {
+        return this.notes.remove(id);
+    }
 }

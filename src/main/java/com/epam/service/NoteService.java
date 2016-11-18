@@ -12,4 +12,6 @@ public interface NoteService {
     List<Note> getAllNotes();
     List<Note> getNotesByUser(Long userId);
     Note saveNote(Note note);
+    Note deleteNote(Note note);
+    Note deleteNote(Long id);
 }

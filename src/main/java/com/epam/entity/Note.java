@@ -2,18 +2,13 @@ package com.epam.entity;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 /**
  * Basic note entity class
  */
 @Entity
-@ToString
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @RequiredArgsConstructor
 public class Note {
@@ -25,6 +20,6 @@ public class Note {
     private String text;
 
     @NonNull
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private User user;
 }

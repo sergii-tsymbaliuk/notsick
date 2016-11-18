@@ -9,14 +9,14 @@ import java.util.List;
  * Basic user entity.
  */
 @Entity
-@ToString
-@Getter
-@Setter
 @NoArgsConstructor
 @RequiredArgsConstructor
+@Getter
+@Setter
+@Data
 public class User {
-    @GeneratedValue
     @Id
+    @GeneratedValue
     private Long id;
 
     @NonNull
