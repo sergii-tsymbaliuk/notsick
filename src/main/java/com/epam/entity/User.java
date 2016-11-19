@@ -25,6 +25,6 @@ public class User {
     @NonNull
     private String login;
 
-    @OneToMany
+    @OneToMany (fetch=FetchType.EAGER)
     private List<Note> notes;
 }
